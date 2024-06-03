@@ -1,9 +1,7 @@
-
-import { provideHttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ProductService } from "@store/data-access";
+import { map } from 'rxjs';
 
 
 @Component({
@@ -17,10 +15,15 @@ import { ProductService } from "@store/data-access";
 })
 export class AppComponent {
   title = 'web-store';
-  products;
+  products!: string;
 
   constructor(private productSvc: ProductService) {
-    this.products = this.productSvc.getProducts()
+   this.productSvc.getProducts().pipe(
+      map (res=> {
+        console.log(res)
+        this.products = JSON.stringify(res)
+      })
+    ).subscribe()
 
   }
 
