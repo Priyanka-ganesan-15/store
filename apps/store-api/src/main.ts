@@ -57,6 +57,22 @@ app.post('/api/product', (req, res) => {
       });
 });
 
+app.delete('/api/product/:ID', async (req, res) => {
+  const itemId = req.params.ID;
+
+  try {
+    const result = await db.collection(collectionName).deleteOne({ ID: itemId });
+
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: `Item ${itemId} deleted successfully` });
+    } else {
+      res.status(404).json({ message: `Item ${itemId} not found` });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while deleting the item' });
+  }
+});
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
