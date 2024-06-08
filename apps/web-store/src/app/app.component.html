@@ -3,7 +3,11 @@
 <div>
   <h1>{{ title }}</h1>
   <h2>Products</h2>
-  <pre>{{ products | json }}</pre>
+
+  <pre>{{ products | json }}</pre>  <div class="product-grid">
+
+
+
 
   <h2>Create New Product</h2>
   <form (ngSubmit)="createProduct()">
@@ -26,3 +30,5 @@
     </form>
   </div>
 </div>
+
+ 

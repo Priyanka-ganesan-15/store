@@ -20,7 +20,6 @@ export class AppComponent {
   products!: string;
   newProduct: Product = { ID: '', name: '' };
   deleteProductId = '';
-
   constructor(private productSvc: ProductService) {
     this.loadProducts();
   }
@@ -59,5 +58,4 @@ export class AppComponent {
       }
     );
   }
- 
 }
