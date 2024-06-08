@@ -1,0 +1,28 @@
+<div>MYSTORE</div>
+{{ products }}
+<div>
+  <h1>{{ title }}</h1>
+  <h2>Products</h2>
+  <pre>{{ products | json }}</pre>
+
+  <h2>Create New Product</h2>
+  <form (ngSubmit)="createProduct()">
+    <label for="ID">ID:</label>
+    <input id="ID" [(ngModel)]="newProduct.ID" name="ID" required />
+
+    <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="newProduct.name" name="name" required />
+
+    <button type="submit">Create Product</button>
+  </form>
+
+  <div>
+    <h2>Delete Product by ID</h2>
+    <form (ngSubmit)="deleteProduct()">
+      <label for="deleteID">Product ID:</label>
+      <input id="deleteID" [(ngModel)]="deleteProductId" name="deleteID" required />
+
+      <button type="submit">Delete Product</button>
+    </form>
+  </div>
+</div>
