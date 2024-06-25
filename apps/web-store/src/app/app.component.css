@@ -1,0 +1,40 @@
+/* app.component.css */
+body, html {
+  margin: 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 7.5%;
+  background: #5e5e5e;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures the header stays above other content */
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.product-tile {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: calc(33.333% - 32px); /* Adjusted for better grid alignment */
+  min-width: 120px;
+  max-width: 240px;
+  box-sizing: border-box;
+}

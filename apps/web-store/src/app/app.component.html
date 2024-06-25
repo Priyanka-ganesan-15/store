@@ -1,10 +1,19 @@
-<div>MYSTORE</div>
-{{ products }}
-<div>
-  <h1>{{ title }}</h1>
-  <h2>Products</h2>
+<title >MYSTORE</title>
+<!-- {{ productsArray }} -->
+  <div class = "header">
+    <h1>{{ title }}</h1>
+  </div>
+  <div>
+    <h2>Products</h2>
+    <div class="product-grid">
+      <div *ngFor="let product of productsArray" class="product-tile">
+        <p><strong>ID:</strong> {{ product.ID }}</p>
+        <p><strong>Name:</strong> {{ product.name }}</p>
+    </div>
+  </div>
 
-  <pre>{{ products | json }}</pre>  <div class="product-grid">
+
+  <pre>{{ productsArray | json }}</pre>  <div class="product-grid">
 
 
 

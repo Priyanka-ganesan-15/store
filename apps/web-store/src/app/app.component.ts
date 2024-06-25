@@ -17,6 +17,7 @@ import { map } from 'rxjs';
 })
 export class AppComponent {
   title = 'web-store';
+  productsArray: Product[] = []; // Define productsArray property
   products!: string;
   newProduct: Product = { ID: '', name: '' };
   deleteProductId = '';
@@ -31,6 +32,11 @@ export class AppComponent {
         this.products = JSON.stringify(res)
       })
     ).subscribe()
+    this.productSvc.getProducts().pipe(
+      map(res => {
+        this.productsArray = res; // Assign fetched products to productsArray
+      })
+    ).subscribe();
   }
 
   createProduct() {
